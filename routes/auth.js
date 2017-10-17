@@ -23,7 +23,13 @@ var passport = require('../auth/passport');
  */
 router.get('/google', passport.authenticate('google',
   {
-    scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar'],
+    scope: [
+            'openid',
+            'email',
+            'profile', 
+            'https://www.googleapis.com/auth/calendar', 
+            'https://www.googleapis.com/auth/userinfo.email'
+          ],
     prompt: 'select_account',
   })
 );

@@ -8,3 +8,4 @@ node_modules
 
 # Config
 config/auth.js
+config/client_id.json

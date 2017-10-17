@@ -41,6 +41,13 @@ passport.use('google', new GoogleStrategy({
   clientID: config.googleAuth.clientId,
   clientSecret: config.googleAuth.clientSecret,
   callbackURL: config.googleAuth.callbackUrl,
+  scope: [
+    'openid',
+    'email',
+    'profile', 
+    'https://www.googleapis.com/auth/calendar', 
+    'https://www.googleapis.com/auth/userinfo.email'
+  ]
 }, function (token, refreshToken, profile, done) {
   // Google has responded
 
@@ -61,7 +68,7 @@ passport.use('google', new GoogleStrategy({
           if (err) {
             return done(err);
           }
-
+          profile.accessToken = token;
           return done(null, user);
         });
     });
