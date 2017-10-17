@@ -23,17 +23,7 @@ router.get('/', function (req, res) {
   res.send({ message: 'hi' });
 });
 
-router.post('/', function (req, res, next) {
-  
-      // if session is valid return true and username
-      if (req.isAuthenticated()) {
-          next();
-      } else {
-          // otherwise send 401 and authed false
-          res.status(401).send({ isAuth: false });
-      }
-  
-  }, function (req, res){
+router.post('/', auth, function (req, res){
   var event = {
     description: 'a crazy new years party',
     start: {
