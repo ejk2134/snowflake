@@ -6,9 +6,11 @@
 var express = require('express');
 var router  = express.Router();
 var calendar = require('./calendar');
+var event = require('./event');
 
 /** ---------- SUBROUTES ---------- **/
 router.use('/calendar', calendar);
+router.use('/event', event);
 
 /**
  * GET private/index
