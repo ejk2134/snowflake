@@ -4,24 +4,28 @@ snowflakeApp.service('EventService', function($http, $location){
 
     self.eventData = {};
 
-    self.newEvent = function(name, dateFrom, dateTo){
+    self.newEvent = function(name, dateFrom, dateTo, emails){
         var newEventObj = {
             name: name,
             fromDate: dateFrom,
-            toDate: dateTo
+            toDate: dateTo,
+            emails: emails
         }
         $http.post('/private/event', newEventObj)
         .then(function(resp){
             //receive data from posted event
-            self.eventData = resp.data;
-            $location.path('/event');
+            console.log(resp);
+            self.getEvent(resp.data);
         })
     }
 
-    self.getEvent = function(){
-        $http.get('/private/event')
-        .then(function(resp){
-            console.log(resp.data);
+    self.getEvent = function(eventId){
+        $http({
+            method: 'GET',
+            url: '/private/event/' + eventId,
+        }).then(function(resp){
+            self.eventData = resp.data;
+            $location.path('/event');
         })
     }
 })

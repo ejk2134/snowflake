@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
+var User = require('./user');
 
 var attendeeSchema = mongoose.Schema({
-    name: String,
-    id: String,
-    availability: [{type: Date}]
+    id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    availability: [Date]
 })
 
 var eventSchema = mongoose.Schema({

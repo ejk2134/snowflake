@@ -4,6 +4,7 @@
  * @module models/user
  */
 var mongoose = require('mongoose');
+var Event = require('./event');
 
 var userSchema = mongoose.Schema({
   googleId: String,
@@ -11,7 +12,7 @@ var userSchema = mongoose.Schema({
   googleEmail: String,
   googleName: String,
   events: [{
-    id: String,
+    id: {type: mongoose.Schema.Types.ObjectId, ref: 'Event'},
     confirmed: Boolean
   }]
 });

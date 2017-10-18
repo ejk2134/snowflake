@@ -3,4 +3,9 @@
     <md-datepicker ng-model="cc.newEventFrom"></md-datepicker>
     <md-datepicker ng-model="cc.newEventTo"></md-datepicker>
     <button ng-click="cc.submit()">Submit</button>
+    <input type="text" placeholder="Enter an email" ng-model="cc.newInvitee">
+    <button ng-click="cc.addInvitee()">Add</button>
+    <ul>
+        <li ng-repeat="invitee in cc.invitees">{{invitee}}</li>
+    </ul>
 </section>
