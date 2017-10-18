@@ -2,9 +2,13 @@
     border: solid;
 }
 
+table {
+    border-collapse: collapse;
+}
+
 td {
     border: solid;
-    border-collapse: collapse;
+    padding: 0;
     width: 100px;
     height: 30px;
 }
