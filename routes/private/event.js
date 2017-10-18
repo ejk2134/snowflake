@@ -4,6 +4,11 @@ var Event = require('../../models/event');
 
 var getDates = require('../../services/getDates.js');
 
+router.get('/:id', function(req, res){
+    eventId = req.params.id;
+
+    Event.find({id: eventId})
+})
 
 router.post('/', function(req, res){
     var receivedEvent = req.body;
@@ -20,6 +25,7 @@ router.post('/', function(req, res){
                 dates: dateArray,
                 id: newThing.id
             }
+
             res.send(objectToSend);
         }
     })

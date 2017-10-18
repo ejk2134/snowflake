@@ -1,3 +1,10 @@
 .my-events {
     border: solid;
 }
+
+td {
+    border: solid;
+    border-collapse: collapse;
+    width: 100px;
+    height: 30px;
+}

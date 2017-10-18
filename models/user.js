@@ -10,7 +10,10 @@ var userSchema = mongoose.Schema({
   googleToken: String,
   googleEmail: String,
   googleName: String,
-  groups: [{type: String}]
+  events: [{
+    id: String,
+    confirmed: Boolean
+  }]
 });
 
 module.exports = mongoose.model('User', userSchema);
