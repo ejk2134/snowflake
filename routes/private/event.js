@@ -2,7 +2,8 @@ var router = require('express').Router();
 
 var Event = require('../../models/event');
 
-var makeDateArray = require('../../services/makeDateArray.js');
+var getDates = require('../../services/getDates.js');
+
 
 router.post('/', function(req, res){
     var receivedEvent = req.body;
@@ -12,11 +13,12 @@ router.post('/', function(req, res){
             console.log(error);
             res.sendStatus(500);
         }else{
-            var dateArray = makeDateArray(newThing.fromDate, newThing.toDate);
+            dateArray = getDates(newThing.fromDate, newThing.toDate);
 
             var objectToSend = {
                 name: newThing.name,
-                dates: dateArray
+                dates: dateArray,
+                id: newThing.id
             }
             res.send(objectToSend);
         }
