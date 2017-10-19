@@ -44,13 +44,22 @@ router.post('/', function(req, res){
         }else{
             for (var i = 0; i < emails.length; i++){
                 var query = {googleEmail: emails[i]};
-                var target = {$push: {events: {id: newDocument.id, confirmed: false}}};
+                var target = {$push: {events: {_id: newDocument.id, confirmed: false}}};
                 User.findOneAndUpdate(query, target, function(err){
                     if (err){
-                        console.log(err);
+                        console.log('Error updating invited user', err);
                     }
                 })
             }
+
+            var query = {_id: req.user.id};
+            var target = {$push: {events: {_id: newDocument.id, confirmed: true}}}
+            User.findOneAndUpdate(query, target, function (err){
+                if (err){
+                    console.log('Error updating creator database', err)
+                }
+            })
+
             res.send(newDocument.id);
         }
     })
