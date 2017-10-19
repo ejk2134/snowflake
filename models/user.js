@@ -12,7 +12,8 @@ var userSchema = mongoose.Schema({
   googleEmail: String,
   googleName: String,
   events: [{
-    id: {type: mongoose.Schema.Types.ObjectId, ref: 'Event'},
+    id: {type: mongoose.Schema.Types.ObjectId},
+    name: String,
     confirmed: Boolean
   }]
 });

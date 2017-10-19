@@ -10,28 +10,46 @@ router.get('/:id', function(req, res){
     eventId = req.params.id;
     console.log('event id:', eventId);
 
-    Event.findOne({_id: eventId}, function(err, result){
-        if (err){
-            console.log(err);
-            res.sendStatus(500);
-        }else{
-            dateArray = getDates(result.fromDate, result.toDate);
-            
-            var objectToSend = {
-                name: result.name,
-                dates: dateArray,
-                id: result.id
+    if (eventId === 'all'){
+        User.findOne({_id: req.user.id}, 'events', function(err, result){
+            if (err){
+                console.log(err);
+                res.sendStatus(500);
+            }else{
+                console.log(result);
+                res.send(result);
             }
-            res.send(objectToSend);
-        }
-    })
+        })
+    }else{
+        Event.findOne({_id: eventId}, function(err, result){
+            if (err){
+                console.log(err);
+                res.sendStatus(500);
+            }else{
+                dateArray = getDates(result.fromDate, result.toDate);
+                
+                var objectToSend = {
+                    name: result.name,
+                    dates: dateArray,
+                    id: result.id
+                }
+                res.send(objectToSend);
+            }
+        })
+    }
 })
 
 router.post('/', function(req, res){
+    console.log('User:', req.user);
     var receivedEvent = {
         name: req.body.name,
         fromDate: req.body.fromDate,
-        toDate: req.body.toDate
+        toDate: req.body.toDate,
+        attendees: [{
+            _id: req.user.id,
+            name: req.user.googleName,
+            availability: []
+        }]
     }
 
     var emails = req.body.emails;
@@ -44,7 +62,7 @@ router.post('/', function(req, res){
         }else{
             for (var i = 0; i < emails.length; i++){
                 var query = {googleEmail: emails[i]};
-                var target = {$push: {events: {_id: newDocument.id, confirmed: false}}};
+                var target = {$push: {events: {_id: newDocument.id, name: req.body.name, confirmed: false}}};
                 User.findOneAndUpdate(query, target, function(err){
                     if (err){
                         console.log('Error updating invited user', err);
@@ -53,7 +71,7 @@ router.post('/', function(req, res){
             }
 
             var query = {_id: req.user.id};
-            var target = {$push: {events: {_id: newDocument.id, confirmed: true}}}
+            var target = {$push: {events: {_id: newDocument.id, name: req.body.name, confirmed: true}}}
             User.findOneAndUpdate(query, target, function (err){
                 if (err){
                     console.log('Error updating creator database', err)

@@ -2,7 +2,7 @@ snowflakeApp.service('EventService', function($http, $location){
     var self = this;
     self.funtime = 'Event Service';
 
-    self.eventData = {};
+    self.eventData = {events: []};
 
     self.newEvent = function(name, dateFrom, dateTo, emails){
         var newEventObj = {
@@ -25,7 +25,21 @@ snowflakeApp.service('EventService', function($http, $location){
             url: '/private/event/' + eventId,
         }).then(function(resp){
             self.eventData = resp.data;
-            $location.path('/event');
+            console.log(self.eventData);
+            if (eventId != 'all'){
+                $location.path('/event');
+            }
         })
     }
+
+    self.getAllEvents = function(){
+        $http({
+            method: 'GET',
+            url: '/private/event/all',
+        }).then(function(resp){
+            console.log('Response.data:', resp.data.events);
+            self.eventData.events = resp.data.events;
+        })
+    }
+    
 })

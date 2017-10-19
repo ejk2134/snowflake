@@ -3,6 +3,7 @@ var User = require('./user');
 
 var attendeeSchema = mongoose.Schema({
     id: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    name: String,
     availability: [Date]
 })
 

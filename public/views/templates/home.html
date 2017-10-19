@@ -1,9 +1,8 @@
 <section>
     <div class="my-events">
-        A list of events
-    </div>
-    <div>
-        <button ng-click="uc.getEvent('59e77a74a01d4f0702c5b2c0')">Go to event</button>
+        <ul>
+            <li ng-repeat="event in uc.eventData.events" ng-if="event.confirmed" ng-dblclick="uc.getEvent(event._id)">{{event.name}}</li>
+        </ul>
     </div>
     <div>
         <button ng-click="uc.create()">Create new event</button>

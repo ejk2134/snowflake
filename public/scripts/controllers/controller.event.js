@@ -3,5 +3,4 @@ snowflakeApp.controller('EventController', function(EventService){
     var vm = this;
 
     vm.event = EventService.eventData;
-    console.log(vm.event);
 })
