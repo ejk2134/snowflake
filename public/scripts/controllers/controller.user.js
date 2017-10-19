@@ -1,4 +1,4 @@
-snowflakeApp.controller('UserController', function (EventService, $http) {
+snowflakeApp.controller('UserController', function (EventService, $location) {
   console.log('loaded uc');
   var vm = this;
 
@@ -6,5 +6,7 @@ snowflakeApp.controller('UserController', function (EventService, $http) {
     EventService.getEvent(id);
   }
 
-  
+  vm.create = function(){
+    $location.path('/new');
+  }
 });

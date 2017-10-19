@@ -1,5 +1,8 @@
-snowflakeApp.controller('AuthController', function (AuthFactory) {
-  var _this = this;
+snowflakeApp.controller('AuthController', function (AuthFactory, $location) {
+  var vm = this;
   var authFactory = AuthFactory;
-  _this.loggedIn = authFactory.checkLoggedIn(); // NOTE: only updated on page load
+  vm.loggedIn = authFactory.checkLoggedIn(); // NOTE: only updated on page load
+  if (vm.loggedIn){
+    $location.path('/home');
+  }
 });
