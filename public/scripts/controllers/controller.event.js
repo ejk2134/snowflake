@@ -3,4 +3,10 @@ snowflakeApp.controller('EventController', function(EventService){
     var vm = this;
 
     vm.event = EventService.eventData;
+
+    vm.addTime = function(date, time){
+        var dateItem = new Date(date);
+        dateItem.setHours(time);
+        console.log(dateItem);
+    }
 })

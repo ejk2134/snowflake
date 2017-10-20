@@ -11,6 +11,10 @@ td {
     background-color: green;
 }
 
+.active:focus {
+    background-color: green !important;
+}
+
 .active:hover {
     background-color: lightgreen !important;
 }
@@ -38,4 +42,9 @@ td {
     width: 100%;
     height: 100%;
     color: green;
+}
+
+.time-select .md-icon {
+    width: 100%;
+    height: 100%;
 }
