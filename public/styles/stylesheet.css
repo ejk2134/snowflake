@@ -12,7 +12,7 @@ td {
 }
 
 .active:hover {
-    opacity: 0.5;
+    background-color: lightgreen !important;
 }
 
 .my-events {
