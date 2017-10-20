@@ -2,9 +2,9 @@
     <input type="text" placeholder="Name of event" ng-model="cc.newEventName">
     <md-datepicker ng-model="cc.newEventFrom"></md-datepicker>
     <md-datepicker ng-model="cc.newEventTo"></md-datepicker>
-    <button ng-click="cc.submit()">Submit</button>
+    <md-button ng-click="cc.submit()">Submit</md-button>
     <input type="text" placeholder="Enter an email" ng-model="cc.newInvitee">
-    <button ng-click="cc.addInvitee()">Add</button>
+    <md-button ng-click="cc.addInvitee()">Add</md-button>
     <ul>
         <li ng-repeat="invitee in cc.invitees">{{invitee}}</li>
     </ul>

@@ -16,7 +16,6 @@ router.get('/:id', function(req, res){
                 console.log(err);
                 res.sendStatus(500);
             }else{
-                console.log(result);
                 res.send(result);
             }
         })
