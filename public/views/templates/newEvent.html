@@ -1,7 +1,7 @@
 <section>
     <input type="text" placeholder="Name of event" ng-model="cc.newEventName">
-    <md-datepicker ng-model="cc.newEventFrom"></md-datepicker>
-    <md-datepicker ng-model="cc.newEventTo"></md-datepicker>
+    <md-datepicker ng-model="cc.newEventFrom" md-min-date="cc.minDate" md-max-date="cc.newEventTo"></md-datepicker>
+    <md-datepicker ng-model="cc.newEventTo" md-min-date="cc.newEventFrom"></md-datepicker>
     <md-button ng-click="cc.submit()">Submit</md-button>
     <input type="text" placeholder="Enter an email" ng-model="cc.newInvitee">
     <md-button ng-click="cc.addInvitee()">Add</md-button>

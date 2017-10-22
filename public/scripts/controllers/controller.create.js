@@ -12,7 +12,10 @@ snowflakeApp.controller('CreateController', function(EventService){
         vm.newInvitee = '';
     }
 
+    vm.minDate = new Date();
+
     vm.submit = function(){
+        console.log(vm.newEventFrom);
         EventService.newEvent(vm.newEventName, vm.newEventFrom, vm.newEventTo, vm.invitees);
     }
 })
