@@ -4,8 +4,8 @@ snowflakeApp.controller('EventController', function(EventService){
 
     vm.event = EventService.eventData;
 
-    vm.userAvailability = {times: []};
-    var timeList = vm.userAvailability.times;
+    // vm.userAvailability = {times: event};
+    // var timeList = vm.userAvailability.times;
 
     function lookForDate(date){
         for (var i = 0; i < timeList.length; i++){

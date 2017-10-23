@@ -26,12 +26,23 @@ router.get('/:id', function(req, res){
                 res.sendStatus(500);
             }else{
                 dateArray = getDates(result.fromDate, result.toDate);
-                
+
+                var attendees = result.attendees;
+
                 var objectToSend = {
+                    id: result.id,
                     name: result.name,
                     dates: dateArray,
-                    id: result.id
+                    attendees: attendees
                 }
+
+                for (var i = 0; i < attendees.length; i++){
+                    if (attendees[i]._id == req.user.id){
+                        objectToSend.user = attendees[i];
+                        break;
+                    }
+                }
+
                 res.send(objectToSend);
             }
         })

@@ -25,10 +25,8 @@ snowflakeApp.service('EventService', function($http, $location){
             url: '/private/event/' + eventId,
         }).then(function(resp){
             self.eventData = resp.data;
-            console.log(self.eventData);
-            if (eventId != 'all'){
-                $location.path('/event');
-            }
+            console.log('From event request', self.eventData);
+            $location.path('/event');
         })
     }
 
