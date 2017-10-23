@@ -18,6 +18,11 @@ snowflakeApp.config(['$routeProvider', function ($routeProvider) {
       controller: 'CreateController',
       controllerAs: 'cc'
     })
+    .when('/entry', {
+      templateUrl: '/public/views/templates/entry.html',
+      controller: 'EventController',
+      controllerAs: 'ec'
+    })
     .when('/event', {
       templateUrl: '/public/views/templates/event.html',
       controller: 'EventController',

@@ -1,0 +1,202 @@
+<section>
+    <md-button ng-click="ec.submitAvailabilityChanges()">Submit Changes</md-button>
+    <table>
+        <tr>
+            <th></th>
+            <th ng-repeat="day in ec.event.dates" class="table-header">
+            {{day | date: 'EEEE, MMMM d'}}
+            </th>
+        </tr>
+        <tr>
+            <td class="time-cell">midnight</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 0)" 
+                ng-click="active=!active; ec.addTime(day, 0)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">1am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 1)"
+                ng-click="active=!active; ec.addTime(day, 1)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">2am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 2)"
+                ng-click="active=!active; ec.addTime(day, 2)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">3am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 3)"
+                ng-click="active=!active; ec.addTime(day, 3)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">4am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 4)"
+                ng-click="active=!active; ec.addTime(day, 4)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">5am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 5)"
+                ng-click="active=!active; ec.addTime(day, 5)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">6am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 6)"
+                ng-click="active=!active; ec.addTime(day, 6)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">7am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 7)"
+                ng-click="active=!active; ec.addTime(day, 7)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">8am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 8)"
+                ng-click="active=!active; ec.addTime(day, 8)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">9am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 9)"
+                ng-click="active=!active; ec.addTime(day, 9)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">10am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 10)"
+                ng-click="active=!active; ec.addTime(day, 10)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">11am</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 11)"
+                ng-click="active=!active; ec.addTime(day, 11)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">noon</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 12)"
+                ng-click="active=!active; ec.addTime(day, 12)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">1pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 13)"
+                ng-click="active=!active; ec.addTime(day, 13)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">2pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 14)"
+                ng-click="active=!active; ec.addTime(day, 14)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">3pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 15)"
+                ng-click="active=!active; ec.addTime(day, 15)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">4pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 16)"
+                ng-click="active=!active; ec.addTime(day, 16)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">5pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 17)"
+                ng-click="active=!active; ec.addTime(day, 17)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">6pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 18)"
+                ng-click="active=!active; ec.addTime(day, 18)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">7pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 19)"
+                ng-click="active=!active; ec.addTime(day, 19)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">8pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 20)"
+                ng-click="active=!active; ec.addTime(day, 20)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">9pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 21)"
+                ng-click="active=!active; ec.addTime(day, 21)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">10pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 22)"
+                ng-click="active=!active; ec.addTime(day, 22)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+        <tr>
+            <td class="time-cell">11pm</td>
+            <td ng-repeat="day in ec.event.dates" class="table-cell">
+                <md-button class="time-select" ng-init="active=ec.isActive(day, 23)"
+                ng-click="active=!active; ec.addTime(day, 23)" ng-class="{'active': active}"
+                aria-label="Availability entry cell"></md-button>
+            </td>
+        </tr>
+</section>

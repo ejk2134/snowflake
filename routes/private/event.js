@@ -35,7 +35,7 @@ router.get('/:id', function(req, res){
                     dates: dateArray,
                     attendees: attendees
                 }
-
+                //send logged-in user's data separately -- needed for client-side logic
                 for (var i = 0; i < attendees.length; i++){
                     if (attendees[i]._id == req.user.id){
                         objectToSend.user = attendees[i];
