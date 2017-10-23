@@ -2,8 +2,6 @@ snowflakeApp.service('EventService', function($http, $location){
     var self = this;
     self.funtime = 'Event Service';
 
-    self.eventData = {events: []};
-
     self.newEvent = function(name, dateFrom, dateTo, emails){
         var newEventObj = {
             name: name,
@@ -19,7 +17,22 @@ snowflakeApp.service('EventService', function($http, $location){
         })
     }
 
+    self.confirmDecline = function(id, rsvp){
+        $http.put('/private/event/' + rsvp + id)
+        .then(function(resp){
+            console.log(resp);
+            if (rsvp === 'accept/'){
+                self.getEvent(id);
+            }else{
+                self.getAllEvents();
+            }
+        })
+    }
+
     self.getEvent = function(eventId){
+
+        self.eventData = {events: []};
+
         $http({
             method: 'GET',
             url: '/private/event/' + eventId,
@@ -31,6 +44,9 @@ snowflakeApp.service('EventService', function($http, $location){
     }
 
     self.getAllEvents = function(){
+
+        self.eventData = {events: []};
+
         $http({
             method: 'GET',
             url: '/private/event/all',

@@ -1,5 +1,10 @@
 <section>
     <md-button ng-click="ec.updateAvailability()">Update Availability</md-button>
+    <md-radio-group ng-model="ec.missingPersons">
+        <md-radio-button ng-repeat="attendee in ec.event.attendees" ng-value="ec.event.attendees.length - $index">
+            {{$index}}
+        </md-radio-button>
+    </md-radio-group>
     <table>
         <tr>
             <th></th>
@@ -10,145 +15,145 @@
         <tr>
             <td class="time-cell">midnight</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 0, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 0, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">1am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 1, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 1, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">2am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 2, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 2, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">3am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 3, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 3, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">4am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 4, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 4, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">5am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 5, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 5, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">6am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 6, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 6, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">7am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 7, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 7, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">8am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 8, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 8, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">9am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 9, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 9, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">10am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 10, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 10, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">11am</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 11, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 11, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">noon</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 12, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 12, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">1pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 13, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 13, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">2pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 14, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 14, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">3pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 15, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 15, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">4pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 16, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 16, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">5pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 17, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 17, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">6pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 18, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 18, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">7pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 19, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 19, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">8pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 20, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 20, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">9pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 21, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 21, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">10pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 22, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 22, ec.missingPersons)"></md-button>
             </td>
         </tr>
         <tr>
             <td class="time-cell">11pm</td>
             <td ng-repeat="day in ec.event.dates" class="table-cell">
-                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 23, 1)"></md-button>
+                <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 23, ec.missingPersons)"></md-button>
             </td>
         </tr>
 </section>

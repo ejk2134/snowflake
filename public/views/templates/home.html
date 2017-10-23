@@ -1,7 +1,12 @@
 <section>
     <div class="my-events">
         <ul>
-            <li ng-repeat="event in uc.eventData.events" ng-dblclick="uc.getEvent(event._id)">{{event.name}}</li>
+            <li ng-repeat="event in uc.eventData.events" ng-if="event.confirmed === false" class="event-item-unconfirmed"
+            ng-dblclick="uc.showConfirmation(event.name,event._id, $event)"><i>{{event.name}} (unconfirmed)</i></li>
+        </ul>
+        <ul>
+            <li ng-repeat="event in uc.eventData.events" ng-if="event.confirmed === true" class="event-item-confirmed"
+            ng-dblclick="uc.getEvent(event._id)">{{event.name}}</li>
         </ul>
     </div>
     <div>

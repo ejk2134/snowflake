@@ -92,6 +92,30 @@ router.post('/', function(req, res){
     })
 })
 
+router.put('/accept/:id', function(req, res){
+    var eventId = req.params.id;
+
+    var query = {_id: eventId};
+    var target = {$push: {attendees: {_id: req.user.id, name: req.user.googleName, availability: []}}}
+    Event.findOneAndUpdate(query, target, function(err){
+        if (err){
+            console.log('Error adding user to events collection', err)
+            res.sendStatus(500);
+        }else{
+            var query = {_id: req.user.id, 'events._id': eventId};
+            var target = {$set: {'events.$.confirmed': true}};
+            User.findOneAndUpdate(query, target, function(err){
+                if (err){
+                    console.log('Error updating event in user collection', err);
+                    res.sendStatus(500);
+                }else{
+                    res.sendStatus(200);
+                }
+            })
+        }
+    })
+})
+
 router.put('/:id', function(req, res){
     var availability = req.body.times;
     var eventId = req.params.id;
@@ -99,7 +123,7 @@ router.put('/:id', function(req, res){
     console.log('Event id:', req.params.id);
 
     var query = {_id: eventId, 'attendees._id': req.user.id};
-    var target = {$set: {'attendees.$.availability': availability}}
+    var target = {$set: {'attendees.$.availability': availability}};
     Event.findOneAndUpdate(query, target, function(err){
         if (err){
             console.log(err);

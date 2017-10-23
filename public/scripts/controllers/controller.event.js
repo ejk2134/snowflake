@@ -3,8 +3,14 @@ snowflakeApp.controller('EventController', function(EventService, $location){
     var vm = this;
 
     vm.event = EventService.eventData;
-    vm.userAvailability = {times: vm.event.user.availability};
-    var timeList = vm.userAvailability.times;
+    //if variable is empty, navigate home -- workaround for empty data on page refresh
+    if (vm.event === undefined){
+        $location.path('/home');
+    }else{
+        vm.userAvailability = {times: vm.event.user.availability};
+        var timeList = vm.userAvailability.times;
+    }
+
     console.log('Event in EC', vm.event)
 
     function lookForDate(date){
