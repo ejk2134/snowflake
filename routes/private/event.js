@@ -39,7 +39,6 @@ router.get('/:id', function(req, res){
 })
 
 router.post('/', function(req, res){
-    console.log('User:', req.user);
     var receivedEvent = {
         name: req.body.name,
         fromDate: req.body.fromDate,
@@ -78,6 +77,24 @@ router.post('/', function(req, res){
             })
 
             res.send(newDocument.id);
+        }
+    })
+})
+
+router.put('/:id', function(req, res){
+    var availability = req.body.times;
+    var eventId = req.params.id;
+    console.log('Received object:', availability);
+    console.log('Event id:', req.params.id);
+
+    var query = {_id: eventId, 'attendees._id': req.user.id};
+    var target = {$set: {'attendees.$.availability': availability}}
+    Event.findOneAndUpdate(query, target, function(err){
+        if (err){
+            console.log(err);
+            res.sendStatus(500);
+        }else{
+            res.sendStatus(201);
         }
     })
 })

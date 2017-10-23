@@ -41,5 +41,16 @@ snowflakeApp.service('EventService', function($http, $location){
             self.eventData.events = resp.data.events;
         })
     }
+
+    self.updateUserAvailability = function(availabilityObj, eventId){
+        console.log('Times:', availabilityObj);
+        console.log('ID:', eventId);
+
+        $http.put('/private/event/' + eventId, availabilityObj)
+        .then(function(resp){
+            console.log(resp);
+            self.getEvent(eventId);
+        })
+    }
     
 })
