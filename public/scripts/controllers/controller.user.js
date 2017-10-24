@@ -1,4 +1,8 @@
-snowflakeApp.controller('UserController', function (EventService, $location, $mdDialog) {
+snowflakeApp.controller('UserController', function (EventService, AuthFactory, $location, $mdDialog) {
+  if (AuthFactory.Status.loggedIn === false){
+    $location.path('/login');
+  }
+
   console.log('loaded uc with', EventService.funtime);
   var vm = this;
 

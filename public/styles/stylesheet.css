@@ -7,8 +7,8 @@ td {
     height: 30px;
 }
 
-.md-button.md-accent {
-    color: rgb(35, 177, 221)
+md-nav-bar .md-button._md-nav-button.md-unselected {
+    color: rgb(35, 177, 221);
 }
 
 md-nav-bar .md-nav-bar {
@@ -64,6 +64,11 @@ md-nav-bar .md-nav-bar {
     position: fixed;
 }
 
-._md-nav-bar-list {
-    margin-left: 35px;
+.md-button.md-accent {
+    color: rgb(35, 177, 221);
 }
+
+._md-nav-bar-list {
+    margin-left: 55px;
+}
+
