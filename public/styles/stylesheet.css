@@ -7,6 +7,14 @@ td {
     height: 30px;
 }
 
+.md-button.md-accent {
+    color: rgb(35, 177, 221)
+}
+
+md-nav-bar .md-nav-bar {
+    background-color: rgb(1, 1, 46);
+}
+
 .active {
     background-color: green;
 }
@@ -47,4 +55,15 @@ td {
 .time-select .md-icon {
     width: 100%;
     height: 100%;
+}
+
+#logo {
+    height: 50px;
+    float: left;
+    z-index: 1000;
+    position: fixed;
+}
+
+._md-nav-bar-list {
+    margin-left: 35px;
 }

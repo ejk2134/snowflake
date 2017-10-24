@@ -24,6 +24,14 @@
     <main class="container" ng-app="snowflakeApp">
       <!-- NavController is on every page -->
       <header ng-controller="NavController as nav">
+        <div id="nav-area">
+          <img id="logo" src="/public/assets/snowflake.png" alt="Snowflake logo">
+          <md-nav-bar md-no-ink-bar="true" id="page-nav-bar">
+            <md-nav-item md-nav-href="/#!/home">
+              Home
+            </md-nav-item>
+          </md-nav-bar>
+        </div>
         <h1>Snowflake</h1>
         <nav>
           <ul class="row">
