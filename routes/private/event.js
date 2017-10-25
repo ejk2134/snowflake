@@ -116,6 +116,23 @@ router.put('/accept/:id', function(req, res){
     })
 })
 
+router.put('/decline/:id', function(req, res){
+    var eventId = req.params.id;
+
+    var query = {_id: req.user.id};
+    var target = {$pull: {events : {_id: eventId}}}
+
+    User.findOneAndUpdate(query, target, function(err){
+        if (err){
+            console.log(err);
+            res.sendStatus(500);
+        }else{
+            console.log('Event deleted from User collection');
+            res.sendStatus(200);
+        }
+    })
+})
+
 router.put('/:id', function(req, res){
     var availability = req.body.times;
     var eventId = req.params.id;

@@ -1,4 +1,4 @@
-snowflakeApp.service('EventService', function($http, $location){
+snowflakeApp.service('EventService', function($http, $location, $route){
     var self = this;
     self.funtime = 'Event Service';
 
@@ -24,7 +24,7 @@ snowflakeApp.service('EventService', function($http, $location){
             if (rsvp === 'accept/'){
                 self.getEvent(id);
             }else{
-                self.getAllEvents();
+                $route.reload();
             }
         })
     }
