@@ -1,5 +1,26 @@
-<section>
-    <div class="my-events">
+
+<div md-whiteframe="4" flex layout-padding layout="row" id="home-content-section">
+    <md-content md-whiteframe="4" flex="50" id="home-content">
+        <md-toolbar id="home-list-header-bar">
+            <span class="md-toolbar-tools" id="home-list-header">
+                <b>choose an event</b>
+            </span>
+        </md-toolbar>
+        <md-list>
+            <md-list-item class="md-1-line home-list-item" ng-repeat="event in uc.eventData.events" 
+            ng-click="uc.showConfirmation(event.name,event._id, $event)">
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{ event.name }}</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+    </md-content>  
+    <md-card id="home-card" md-whiteframe="1" flex="50">
+        <md-button class="md-raised" id="create-button" ng-click="uc.create()">...or create an event</md-button>
+    </md-card>
+</div>
+
+    <!-- <div class="my-events">
         <ul>
             <li ng-repeat="event in uc.eventData.events" ng-if="event.confirmed === false" class="event-item-unconfirmed"
             ng-dblclick="uc.showConfirmation(event.name,event._id, $event)"><i>{{event.name}} (unconfirmed)</i></li>
@@ -9,7 +30,7 @@
             ng-dblclick="uc.getEvent(event._id)">{{event.name}}</li>
         </ul>
     </div>
-    <div>
-        <button ng-click="uc.create()">Create new event</button>
-    </div>
-</section>
+<div>
+    <button ng-click="uc.create()">Create new event</button>
+</div> -->
+

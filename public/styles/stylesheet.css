@@ -1,3 +1,21 @@
+html {
+    /* background: linear-gradient(rgb(11, 138, 177), rgb(201, 230, 238)); */
+    background: linear-gradient(rgb(224, 238, 241), rgb(195, 241, 252));
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+body {
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Proza Libre', sans-serif;
+    background: transparent;
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -7,12 +25,17 @@ td {
     height: 30px;
 }
 
+.md-button{
+    font-weight: bold;
+    text-transform: none;
+}
+
 md-nav-bar .md-button._md-nav-button.md-unselected {
     color: rgb(35, 177, 221);
 }
 
 md-nav-bar .md-nav-bar {
-    background-color: rgb(1, 1, 46);
+    background-color: rgb(4, 3, 82);
 }
 
 .active {
@@ -27,8 +50,25 @@ md-nav-bar .md-nav-bar {
     background-color: lightgreen !important;
 }
 
-.my-events {
-    border: solid;
+.content-container {
+    width: 90%;
+    margin: auto;
+}
+
+#home-content-section {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    height: 80%;
+    background: white;
+}
+
+#home-content {
+    margin: 2%;
+}
+
+.home-list-item {
+    color: rgb(4, 3, 82);
 }
 
 .table-cell {
@@ -57,6 +97,38 @@ md-nav-bar .md-nav-bar {
     height: 100%;
 }
 
+#create-button {
+    margin: auto;
+    height: 20%;
+    width: 80%;
+    font-size: 25px;
+    color: rgb(4, 3, 82);
+}
+
+#google-login {
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+#home-list-header {
+    font-size: 30px;
+    color: rgb(4, 3, 82);
+}
+
+#home-list-header-bar {
+    /* border: solid;
+    border-color: rgb(4, 3, 82); */
+    background: white;
+}
+
+#login-card-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Dancing Script', cursive;
+}
+
 #logo {
     height: 50px;
     float: left;
@@ -64,8 +136,15 @@ md-nav-bar .md-nav-bar {
     position: fixed;
 }
 
+#title {
+    font-size: 100px;
+    margin: 30px;
+    color: rgb(4, 3, 82);
+}
+
 .md-button.md-accent {
     color: rgb(35, 177, 221);
+    font-weight: bold !important;
 }
 
 ._md-nav-bar-list {
