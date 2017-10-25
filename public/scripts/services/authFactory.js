@@ -1,6 +1,7 @@
 snowflakeApp.factory('AuthFactory', function ($http) {
   var Status = {
     loggedIn: false,
+    username: ''
   };
 
   // the public API
@@ -13,6 +14,10 @@ snowflakeApp.factory('AuthFactory', function ($http) {
 
     isLoggedIn: function () {
       return $http.get('/auth');
+    },
+
+    rememberUsername(user){
+      Status.username = user;
     },
 
     setLoggedIn: function (value) {

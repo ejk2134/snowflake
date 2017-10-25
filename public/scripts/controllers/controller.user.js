@@ -6,6 +6,11 @@ snowflakeApp.controller('UserController', function (EventService, AuthFactory, $
   console.log('loaded uc with', EventService.funtime);
   var vm = this;
 
+  vm.user = AuthFactory.Status.username;
+
+  console.log(AuthFactory.Status);
+  console.log(vm.user);
+
   EventService.getAllEvents();
 
   vm.eventData = EventService.eventData;

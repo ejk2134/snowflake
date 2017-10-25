@@ -1,23 +1,33 @@
 
-<div md-whiteframe="4" flex layout-padding layout="row" id="home-content-section">
-    <md-content md-whiteframe="4" flex="50" id="home-content">
-        <md-toolbar id="home-list-header-bar">
-            <span class="md-toolbar-tools" id="home-list-header">
-                <b>choose an event</b>
-            </span>
-        </md-toolbar>
-        <md-list>
-            <md-list-item class="md-1-line home-list-item" ng-repeat="event in uc.eventData.events" 
-            ng-click="uc.showConfirmation(event.name,event._id, $event)">
-                <div class="md-list-item-text" layout="column">
-                    <h3>{{ event.name }}</h3>
-                </div>
-            </md-list-item>
-        </md-list>
-    </md-content>  
-    <md-card id="home-card" md-whiteframe="1" flex="50">
-        <md-button class="md-raised" id="create-button" ng-click="uc.create()">...or create an event</md-button>
+<div id="home-content-section">
+    <md-card id="welcome-box">
+        <md-card-title-text id="welcome-title">
+            <b>Welcome</b>
+        </md-card-title-text>
+        <md-card-header-text id="welcome-subheader">
+            Choose an event, or create a new one!
+        </md-card-header-text>
     </md-card>
+    <div flex layout-padding layout="row">
+        <md-content md-whiteframe="4" flex="50" id="home-content">
+            <md-toolbar id="home-list-header-bar">
+                <span class="md-toolbar-tools" id="home-list-header">
+                    <b>your events</b>
+                </span>
+            </md-toolbar>
+            <md-list>
+                <md-list-item class="md-1-line home-list-item" ng-repeat="event in uc.eventData.events" 
+                ng-if="event.confirmed === false" ng-click="uc.showConfirmation(event.name,event._id, $event)">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ event.name }}</h3>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>  
+        <div flex="50">
+            <md-button class="md-raised" id="create-button" ng-click="uc.create()"><i>new event</i></md-button>
+        </div>
+    </div>
 </div>
 
     <!-- <div class="my-events">

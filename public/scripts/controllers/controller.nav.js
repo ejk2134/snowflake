@@ -12,6 +12,7 @@ snowflakeApp.controller('NavController', function (AuthFactory, $window) {
     if (response.data.status) {
       vm.displayLogout = true;
       authFactory.setLoggedIn(true);
+      authFactory.rememberUsername(response.data.name);
       vm.username = response.data.name;
     } else { // is not logged in on server
       vm.displayLogout = false;
