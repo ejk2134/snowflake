@@ -1,11 +1,42 @@
 <section>
+    <md-card id="new-event-card">
+        <div flex layout="row">
+            <form flex="50">
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <input md-maxlength="49" required md-no-asterisk name="description" ng-model="poo">
+                </md-input-container>
+                <md-input-container layout="column">
+                    <h4 class="time-descript">To be scheduled by the date of...</h4>
+                    <md-datepicker ng-model="cc.newEventTo" md-min-date="cc.newEventFrom"></md-datepicker>
+                </md-input-container>
+                <md-input-container layout="column">
+                    <h4 class="time-descript">And not before...</h4>
+                    <md-datepicker ng-model="cc.newEventFrom" md-min-date="cc.minDate" md-max-date="cc.newEventTo"></md-datepicker>
+                </md-input-container>
+            </form>
+            <form flex="50">
+                <md-input-container class="md-block">
+                    <label>Invite some people (by Gmail account)</label>
+                    <input md-maxlength="49" md-no-asterisk name="invites" ng-model="cc.newInvitee">
+                </md-input-container>
+                <md-content id="invite-list">
+                    <md-list>
+                        <md-button id="add-invitee-button" ng-click="cc.addInvitee()">Click to add</md-button>
+                        <md-list-item ng-repeat="invitee in cc.invitees">
+                            <div class="md-list-item-text">{{invitee}}</div>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+            </form>
+        </div>
+        <div>
+            <md-button ng-click="cc.submit()">Submit</md-button>
+        </div>
+    </md-card>
+
     <input type="text" placeholder="Name of event" ng-model="cc.newEventName">
-    <md-datepicker ng-model="cc.newEventFrom" md-min-date="cc.minDate" md-max-date="cc.newEventTo"></md-datepicker>
-    <md-datepicker ng-model="cc.newEventTo" md-min-date="cc.newEventFrom"></md-datepicker>
-    <md-button ng-click="cc.submit()">Submit</md-button>
-    <input type="text" placeholder="Enter an email" ng-model="cc.newInvitee">
-    <md-button ng-click="cc.addInvitee()">Add</md-button>
-    <ul>
-        <li ng-repeat="invitee in cc.invitees">{{invitee}}</li>
-    </ul>
+    
+    
+    
 </section>
