@@ -1,4 +1,4 @@
-snowflakeApp.controller('EventController', function(EventService, $location){
+snowflakeApp.controller('EventController', function(EventService, $location, $mdDialog){
     console.log('loaded ec with', EventService.funtime);
     var vm = this;
 
@@ -41,6 +41,64 @@ snowflakeApp.controller('EventController', function(EventService, $location){
         }
         if (count >= minAvailable){
             return 'active';
+        }
+    }
+
+    vm.checkAvailability = function(date, time, ev){
+        var dateItem = new Date(date);
+        dateItem.setHours(time);
+
+        vm.available = [];
+        vm.unavailable = [];
+
+        for (var i = 0; i < vm.event.attendees.length; i++){
+            var added = false;
+            for (var j = 0; j < vm.event.attendees[i].availability.length; j++){
+                var added = false;
+                if (dateItem.getTime() === new Date(vm.event.attendees[i].availability[j]).getTime()){
+                    vm.available.push(vm.event.attendees[i].name);
+                    added = true;
+                    break;
+                }
+            }
+            if (added === false){
+                vm.unavailable.push(vm.event.attendees[i].name);
+            }
+        }
+
+        console.log('AVAILABLE', vm.available);
+        console.log('UNAVAILABLE', vm.unavailable);
+
+        $mdDialog.show({
+            // templateUrl: '/public/views/templates/timedetail.html',
+            template: '<md-dialog ng-app="snowflakeApp" ng-controller="EventController as ec">' +
+            '<p>THIS DIALOG WORKS</p>' +
+            '<div flex>' +
+                '<md-list flex="50">' +
+                    '<md-list-item class="available-list" ng-repeat="person in dc.available">' +
+                        '{{person}}' +
+                 '   </md-list-item>' +
+              '  </md-list>' +
+             '   <md-list flex="50">' +
+                 '   <md-list-item class="unavailable-list" ng-repeat="person in dc.unavailable">' +
+                    '    {{person}}' +
+                 '   </md-list-item>' +
+             '   </md-list>' +
+         '   </div>' +
+       ' </md-dialog>',
+            locals: {
+                available: vm.available,
+                unavailable: vm.unavailable
+            },
+            controller: DialogController,
+            controllerAs: 'dc',
+            targetEvent: ev,
+            clickOutsideToClose: true
+        })
+        function DialogController($mdDialog, available, unavailable){
+            var dialog = this;
+            dialog.available = available;
+            dialog.unavailable = unavailable;
         }
     }
 

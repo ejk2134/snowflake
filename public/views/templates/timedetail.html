@@ -1,0 +1,15 @@
+<md-dialog ng-app="snowflakeApp" ng-controller="EventController as ec">
+    <p>THIS DIALOG WORKS</p>
+    <div flex>
+        <md-list flex="50">
+            <md-list-item ng-repeat="person in ec.available">
+                {{person}}
+            </md-list-item>
+        </md-list>
+        <md-list flex="50">
+            <md-list-item ng-repeat="person in ec.unavailable">
+                {{person}}
+            </md-list-item>
+        </md-list>
+    </div>
+</md-dialog>

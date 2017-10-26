@@ -39,7 +39,7 @@ md-nav-bar .md-nav-bar {
 }
 
 .active {
-    background-color: green;
+    background-color: green !important;
 }
 
 .active:focus {
@@ -48,6 +48,10 @@ md-nav-bar .md-nav-bar {
 
 .active:hover {
     background-color: lightgreen !important;
+}
+
+.available-list {
+    color: lightgreen;
 }
 
 .content-container {
@@ -98,10 +102,15 @@ md-nav-bar .md-nav-bar {
     width: 100%;
     height: 100%;
     color: green;
+    background: white;
 }
 
 .time-select .md-icon {
     width: 100%;
+}
+
+.unavailable-list {
+    color: red;
 }
 
 #add-invitee-button {
