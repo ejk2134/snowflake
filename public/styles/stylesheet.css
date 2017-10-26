@@ -17,13 +17,12 @@ main {
     height: 100vh;
 }
 
-table {
-    border-collapse: collapse;
+section {
+    height: 90vh;
 }
 
-td {
-    width: 100px;
-    height: 30px;
+table {
+    border-collapse: collapse;
 }
 
 .md-button{
@@ -69,6 +68,7 @@ md-nav-bar .md-nav-bar {
 
 #home-content {
     margin: 2%;
+    height: 50vh;
 }
 
 .home-list-item {
@@ -78,6 +78,10 @@ md-nav-bar .md-nav-bar {
 .table-cell {
     border: solid;
     border-width: 2px;
+}
+
+.table-header {
+    font-size: 8px;
 }
 
 .time-cell {
@@ -110,6 +114,11 @@ md-nav-bar .md-nav-bar {
     height: 75%;
     font-size: 25px;
     color: rgb(4, 3, 82);
+}
+
+#event-card {
+    height: 90%;
+    width: 90%;
 }
 
 #google-login {

@@ -56,6 +56,14 @@ snowflakeApp.service('EventService', function($http, $location, $route){
         })
     }
 
+    self.removeEvent = function(eventId){
+        $http.put('/private/event/remove/' + eventId)
+        .then(function(resp){
+            console.log(resp);
+            $location.path('/home');
+        })
+    }
+
     self.updateUserAvailability = function(availabilityObj, eventId){
         console.log('Times:', availabilityObj);
         console.log('ID:', eventId);

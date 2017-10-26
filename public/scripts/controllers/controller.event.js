@@ -21,8 +21,6 @@ snowflakeApp.controller('EventController', function(EventService, $location){
         }
     }
 
-
-
     vm.availabilityClass = function(date, time, minAvailable){
         var dateItem = new Date(date);
         dateItem.setHours(time);
@@ -35,7 +33,6 @@ snowflakeApp.controller('EventController', function(EventService, $location){
                 }
             }
         }
-
         if (count >= minAvailable){
             return 'active';
         }
@@ -74,5 +71,7 @@ snowflakeApp.controller('EventController', function(EventService, $location){
         $location.path('/entry');
     }
 
-
+    vm.leaveEvent = function(){
+        EventService.removeEvent(vm.event.id);
+    }
 })

@@ -19,7 +19,13 @@
                 <md-list-item class="home-list-item" ng-repeat="event in uc.eventData.events" 
                 ng-if="event.confirmed === false" ng-click="uc.showConfirmation(event.name,event._id, $event)">
                     <div class="md-list-item-text" layout="column">
-                        <h3>{{ event.name }}</h3>
+                        <h3>{{event.name}}</h3>
+                    </div>
+                </md-list-item>
+                <md-list-item class="home-list-item" ng-repeat="event in uc.eventData.events"
+                ng-if="event.confirmed === true" ng-click="uc.getEvent(event._id)">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{event.name}}</h3>
                     </div>
                 </md-list-item>
             </md-list>
