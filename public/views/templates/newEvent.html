@@ -4,7 +4,7 @@
             <form flex="50">
                 <md-input-container class="md-block">
                     <label>Description</label>
-                    <input md-maxlength="49" required md-no-asterisk name="description" ng-model="poo">
+                    <input md-maxlength="49" required md-no-asterisk name="description" ng-model="cc.newEventName">
                 </md-input-container>
                 <md-input-container layout="column">
                     <h4 class="time-descript">To be scheduled by the date of...</h4>
@@ -30,13 +30,8 @@
                 </md-content>
             </form>
         </div>
-        <div>
-            <md-button ng-click="cc.submit()">Submit</md-button>
+        <div layout="row" layout-align="center center" flex="50">
+            <md-button class="md-raised" id="submit-event" ng-click="cc.submit()">Submit</md-button>
         </div>
-    </md-card>
-
-    <input type="text" placeholder="Name of event" ng-model="cc.newEventName">
-    
-    
-    
+    </md-card>    
 </section>
