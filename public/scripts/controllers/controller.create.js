@@ -34,9 +34,11 @@ snowflakeApp.controller('CreateController', function(EventService, $mdDialog){
         vm.newEventFrom.setHours(0);
         vm.newEventFrom.setMinutes(0);
         vm.newEventFrom.setSeconds(0);
+        vm.newEventFrom.setMilliseconds(0);
         vm.newEventTo.setHours(0);
         vm.newEventTo.setMinutes(0);
         vm.newEventTo.setSeconds(0);
+        vm.newEventTo.setMilliseconds(0);
         EventService.newEvent(vm.newEventName, vm.newEventFrom, vm.newEventTo, vm.invitees);
     }
 })

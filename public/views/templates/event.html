@@ -1,7 +1,27 @@
 <section flex layout="row" layout-align="center center">
     <md-card id="event-card" flex layout="row">
         <md-content flex="90">
-            <table flex="100" layout="row">
+
+            <md-grid-list md-cols="8" md-row-height="50px">
+                <md-grid-tile></md-grid-tile>
+                <md-grid-tile ng-repeat="day in ec.event.dates">
+                    {{day | date: 'EEEE, MMMM d'}}
+                </md-grid-tile>
+            </md-grid-list>
+            <md-grid-list md-cols="8" md-row-height="25px" ng-repeat="hour in ec.times">
+                <md-grid-tile>
+                    {{ec.timeDisplay[hour]}}
+                </md-grid-tile>
+                <md-grid-tile class="grey" md-rowspan="2" ng-repeat="day in ec.event.dates">
+                    <md-button class="time-select" aria-label="Event schedule cell" 
+                        ng-class="ec.availabilityClass(day, hour, ec.missingPersons)">
+                    </md-button>                            
+                </md-grid-tile>
+                <md-grid-tile>
+                </md-grid-tile>
+            </md-grid-list>
+
+            <!-- <table flex="100" layout="row">
                 <tr flex="100" layout="row">
                     <th flex="12"></th>
                     <th flex="12" ng-repeat="day in ec.event.dates" class="table-header">
@@ -152,7 +172,7 @@
                         <md-button class="time-select" aria-label="Event schedule cell" ng-class="ec.availabilityClass(day, 23, ec.missingPersons)"></md-button>
                     </td>
                 </tr>
-            </table>
+            </table> -->
         </md-content>
         <div flex="10">
             <md-button ng-click="ec.updateAvailability()">Update Availability</md-button>
