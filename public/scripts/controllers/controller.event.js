@@ -44,6 +44,14 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
         }
     }
 
+    vm.radioText = function(num){
+        if (num === 0){
+            return 'everyone';
+        }else{
+            return 'all but ' + num;
+        } 
+    }
+
     vm.checkAvailability = function(date, time, ev){
         var dateItem = new Date(date);
         dateItem.setHours(time);
@@ -71,21 +79,21 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
 
         $mdDialog.show({
             // templateUrl: '/public/views/templates/timedetail.html',
-            template: '<md-dialog ng-app="snowflakeApp" ng-controller="EventController as ec">' +
-            '<p>THIS DIALOG WORKS</p>' +
-            '<div flex>' +
-                '<md-list flex="50">' +
-                    '<md-list-item class="available-list" ng-repeat="person in dc.available">' +
-                        '{{person}}' +
-                 '   </md-list-item>' +
-              '  </md-list>' +
-             '   <md-list flex="50">' +
-                 '   <md-list-item class="unavailable-list" ng-repeat="person in dc.unavailable">' +
-                    '    {{person}}' +
-                 '   </md-list-item>' +
-             '   </md-list>' +
-         '   </div>' +
-       ' </md-dialog>',
+            template: 
+            '<md-dialog ng-app="snowflakeApp" ng-controller="EventController as ec">' +
+                '<div flex layout>' +
+                    '<md-list flex="50" ng-if="dc.available.length > 0">' +
+                        '<md-list-item class="available-list" ng-repeat="person in dc.available">' +
+                            '{{person}}' +
+                        '</md-list-item>' +
+                    '</md-list>' +
+                    '<md-list flex="50" ng-if="dc.unavailable.length > 0">' +
+                        '<md-list-item class="unavailable-list" ng-repeat="person in dc.unavailable">' +
+                            '{{person}}' +
+                        '</md-list-item>' +
+                    '</md-list>' +
+                '</div>' +
+            '</md-dialog>',
             locals: {
                 available: vm.available,
                 unavailable: vm.unavailable
@@ -136,6 +144,7 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
     }
 
     vm.leaveEvent = function(){
+        console.log('Trying to leave event');
         EventService.removeEvent(vm.event.id);
     }
 })

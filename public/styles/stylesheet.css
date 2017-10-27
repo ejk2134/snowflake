@@ -51,7 +51,7 @@ md-nav-bar .md-nav-bar {
 }
 
 .available-list {
-    color: lightgreen;
+    color: rgb(21, 172, 21);
 }
 
 .content-container {
@@ -125,9 +125,18 @@ md-nav-bar .md-nav-bar {
     color: rgb(4, 3, 82);
 }
 
+#entry-header {
+    font-size: 35px;
+}
+
 #event-card {
     height: 90%;
     width: 90%;
+}
+
+#entry-card {
+    height: 80%;
+    
 }
 
 #google-login {

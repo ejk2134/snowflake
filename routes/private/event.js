@@ -25,25 +25,40 @@ router.get('/:id', function(req, res){
                 console.log(err);
                 res.sendStatus(500);
             }else{
-                dateArray = getDates(result.fromDate, result.toDate);
-
-                var attendees = result.attendees;
-
-                var objectToSend = {
-                    id: result.id,
-                    name: result.name,
-                    dates: dateArray,
-                    attendees: attendees
-                }
-                //send logged-in user's data separately -- needed for client-side logic
-                for (var i = 0; i < attendees.length; i++){
-                    if (attendees[i]._id == req.user.id){
-                        objectToSend.user = attendees[i];
-                        break;
+                if(!result){
+                    var query = {_id: req.user.id};
+                    var target = {$pull: {events : {_id: eventId}}}
+                
+                    User.findOneAndUpdate(query, target, function(err){
+                        if (err){
+                            console.log(err);
+                            res.sendStatus(500);
+                        }else{
+                            console.log('Event deleted from User collection');
+                            res.sendStatus(200);
+                        }
+                    })
+                }else{
+                    dateArray = getDates(result.fromDate, result.toDate);
+    
+                    var attendees = result.attendees;
+    
+                    var objectToSend = {
+                        id: result.id,
+                        name: result.name,
+                        dates: dateArray,
+                        attendees: attendees
                     }
+                    //send logged-in user's data separately -- needed for client-side logic
+                    for (var i = 0; i < attendees.length; i++){
+                        if (attendees[i]._id == req.user.id){
+                            objectToSend.user = attendees[i];
+                            break;
+                        }
+                    }
+    
+                    res.send(objectToSend);
                 }
-
-                res.send(objectToSend);
             }
         })
     }
@@ -135,6 +150,8 @@ router.put('/decline/:id', function(req, res){
 
 router.put('/remove/:id', function(req, res){
     var eventId = req.params.id;
+    console.log('Trying to remove', eventId);
+    console.log('From', req.user.id);
     Event.findById(eventId, function(err, result){
         if (err){
             console.log(err)
@@ -157,6 +174,19 @@ router.put('/remove/:id', function(req, res){
                                 res.sendStatus(200);
                             }
                         })
+                    }
+                })
+            }else{
+                var query = {_id: req.user.id};
+                var target = {$pull: {events : {_id: eventId}}}
+            
+                User.findOneAndUpdate(query, target, function(err){
+                    if (err){
+                        console.log(err);
+                        res.sendStatus(500);
+                    }else{
+                        console.log('Event deleted from User collection');
+                        res.sendStatus(200);
                     }
                 })
             }

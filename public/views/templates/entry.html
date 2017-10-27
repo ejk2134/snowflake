@@ -1,6 +1,39 @@
 <section>
-    <md-button ng-click="ec.submitAvailabilityChanges()">Submit Changes</md-button>
-    <table>
+    <md-card>
+        <md-card-title id="entry-header">
+            Select the times you are available, then click submit
+        </md-card-title>
+    </md-card>
+
+    <md-card id="entry-card" flex layout="row">
+        <md-content flex="85" id="entry-content">
+            <md-grid-list md-cols="8" md-row-height="50px">
+                <md-grid-tile></md-grid-tile>
+                    <md-grid-tile ng-repeat="day in ec.event.dates">
+                        {{day | date: 'EEEE, MMMM d'}}
+                    </md-grid-tile>
+            </md-grid-list>
+            <md-grid-list class="schedule-display" md-cols="8" md-row-height="25px" ng-repeat="hour in ec.times">
+                <md-grid-tile>
+                    {{ec.timeDisplay[hour]}}
+                </md-grid-tile>
+                <md-grid-tile md-rowspan="2" class="schedule-tile" ng-repeat="day in ec.event.dates">
+                    <md-button class="time-select" ng-init="active=ec.isActive(day, hour)" 
+                    ng-click="active=!active; ec.addTime(day, hour)" ng-class="{'active': active}"
+                    aria-label="Availability entry cell"></md-button>                            
+                </md-grid-tile>
+                <md-grid-tile>
+                </md-grid-tile>
+            </md-grid-list>
+            </md-content>
+            <div flex="15" layout layout-align="center center">
+                <md-button ng-click="ec.submitAvailabilityChanges()">Submit Changes</md-button>
+            </div>
+        </md-card>
+    
+
+    
+    <!-- <table>
         <tr>
             <th></th>
             <th ng-repeat="day in ec.event.dates" class="table-header">
@@ -198,5 +231,5 @@
                 ng-click="active=!active; ec.addTime(day, 23)" ng-class="{'active': active}"
                 aria-label="Availability entry cell"></md-button>
             </td>
-        </tr>
+        </tr> -->
 </section>
