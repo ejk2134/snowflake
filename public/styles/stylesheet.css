@@ -71,7 +71,6 @@ md-nav-bar .md-nav-bar {
 }
 
 #home-content {
-    margin: 2%;
     height: 50vh;
 }
 
@@ -119,8 +118,8 @@ md-nav-bar .md-nav-bar {
 }
 
 #create-button {
-    width: 95%;
-    height: 75%;
+    width: 100%;
+    height: 100%;
     font-size: 25px;
     color: rgb(4, 3, 82);
 }
@@ -197,9 +196,6 @@ md-nav-bar .md-nav-bar {
 
 #welcome-box {
     text-align: center;
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 2%;
     color: rgb(4, 3, 82);
 }
 

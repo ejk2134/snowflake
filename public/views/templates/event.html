@@ -14,7 +14,7 @@
                 <md-grid-tile md-rowspan="2" class="schedule-tile" ng-repeat="day in ec.event.dates">
                     <md-button class="time-select" aria-label="Event schedule cell" 
                         ng-class="ec.availabilityClass(day, hour, ec.missingPersons)" ng-click="ec.checkAvailability(day, hour, $event)">
-                    </md-button>                            
+                    </md-button>                       
                 </md-grid-tile>
                 <md-grid-tile>
                 </md-grid-tile>
@@ -26,13 +26,14 @@
                     Show availability for...
                 </md-card-title>
                 <md-radio-group ng-model="ec.missingPersons">
-                    <md-radio-button ng-repeat="attendee in ec.event.attendees" ng-value="ec.event.attendees.length - $index">
+                    <md-radio-button ng-repeat="attendee in ec.event.attendees" ng-value="ec.event.attendees.length - $index"
+                    ng-click="ec.availabilityAlert($index)">
                         {{ec.radioText($index)}}
                     </md-radio-button>
                 </md-radio-group>
             </md-card>
             <md-button ng-click="ec.updateAvailability()">Update Availability</md-button>
-            <md-button ng-click="ec.leaveEvent()">Leave event</md-button>
+            <md-button ng-click="ec.leaveEvent()">Remove Me From Event</md-button>
         </div>
     </md-card>
 </section>

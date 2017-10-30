@@ -27,6 +27,18 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
         }
     }
 
+    vm.availabilityAlert = function (number){
+        if (number === 0){
+            $mdDialog.show(
+                $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title('Nothing available')
+                .textContent('Sorry, try fewer people')
+                .ok('Ok')
+            )
+        }
+    }
+
     vm.availabilityClass = function(date, time, minAvailable){
         var dateItem = new Date(date);
         dateItem.setHours(time);
@@ -74,9 +86,6 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
             }
         }
 
-        console.log('AVAILABLE', vm.available);
-        console.log('UNAVAILABLE', vm.unavailable);
-
         $mdDialog.show({
             // templateUrl: '/public/views/templates/timedetail.html',
             template: 
@@ -107,6 +116,18 @@ snowflakeApp.controller('EventController', function(EventService, $location, $md
             var dialog = this;
             dialog.available = available;
             dialog.unavailable = unavailable;
+        }
+    }
+
+    vm.isAnyoneAvailable = function(ev){
+        if (vm.anyone === false){
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Not happening!')
+                    .textContent('Try fewer people')
+                    .targetEvent(ev)
+            )
         }
     }
 
