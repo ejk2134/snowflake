@@ -2,6 +2,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+/** ---------- Environment variables ---------- **/
+require('dotenv').config();
 /** ---------- REQUIRE CUSTOM APP MODULES ---------- **/
 var passport = require('./auth/passport');
 var configs = require('./config/auth');
@@ -18,13 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 /** ---------- DATABASE CONNECTION HANDLING ---------- **/
 database();
-/** ---------- SESSION CREATION AND STORAGE ---------- **/
-/**
- * Creates session that will be stored in memory.
- * @todo Before deploying to production,
- * configure session store to save to DB instead of memory (default).
- * @see {@link https://www.npmjs.com/package/express-session}
- */
+
 app.use(session({
   secret: configs.sessionVars.secret,
   key: 'user',
