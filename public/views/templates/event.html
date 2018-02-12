@@ -26,8 +26,7 @@
                     Show availability for...
                 </md-card-title>
                 <md-radio-group ng-model="ec.missingPersons">
-                    <md-radio-button ng-repeat="attendee in ec.event.attendees" ng-value="ec.event.attendees.length - $index"
-                    ng-click="ec.availabilityAlert($index)">
+                    <md-radio-button ng-repeat="attendee in ec.event.attendees" ng-value="ec.event.attendees.length - $index">
                         {{ec.radioText($index)}}
                     </md-radio-button>
                 </md-radio-group>
